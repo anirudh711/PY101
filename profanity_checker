@@ -1,0 +1,32 @@
+import os
+import urllib
+from urllib.request import urlopen
+def read_text():
+    quotes=open(r"%TEXT_FILE%")
+    #saved_path=os.getcwd()
+    #print("Current working directory "+saved_path)
+    contents=quotes.read()
+    contents=contents.replace(" ","")   #One can either replace %20 or "" instead of spaces 
+    print(contents)
+    quotes.close()
+   
+    check_profanity(contents)
+
+def check_profanity(texty):
+   
+    file=urlopen("http://www.wdylike.appspot.com/?q="+texty)
+    output=file.read()
+    print(output)
+    file.close()
+    if b'true' in output:
+        print("Profanity alert")
+    elif b'false' in output:
+        print("There are no curse words")
+        
+        
+    
+    
+
+
+read_text()    
+#gg
