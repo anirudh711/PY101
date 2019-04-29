@@ -6,7 +6,8 @@ def read_text():
     #saved_path=os.getcwd()
     #print("Current working directory "+saved_path)
     contents=quotes.read()
-    contents=contents.replace(" ","")   #One can either replace %20 or "" instead of spaces 
+    contents=contents.replace("\n","")   #One can either replace nextline with spaces 
+    contents=contents.replace(" ","")  #One can either replace %20 or "" instead of spaces 
     print(contents)
     quotes.close()
    
